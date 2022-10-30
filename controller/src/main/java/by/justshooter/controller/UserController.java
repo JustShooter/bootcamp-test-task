@@ -6,12 +6,16 @@ import by.justshooter.service.dtos.UserDtoOutput;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController("/")
@@ -28,8 +32,10 @@ public class UserController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createNewUser(@RequestBody UserDtoInput newUser){
+    @ResponseStatus(HttpStatus.CREATED)
+    public UserDtoInput createNewUser(@Valid @RequestBody UserDtoInput newUser){
         logger.info("createNewUser" + newUser);
-        userService.createNewUser(newUser);
+
+        return userService.createNewUser(newUser);
     }
 }

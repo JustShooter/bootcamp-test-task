@@ -23,6 +23,15 @@ public class UserMapper {
                 .build();
     }
 
+    public static UserDtoInput mapUserToUserInputDto(User user){
+        return new UserDtoInput(
+                user.getSecondName(),
+                user.getFirstName(),
+                user.getMiddleName(),
+                user.getEMail(),
+                user.getRole().getName());
+    }
+
     private static String getFullNameOfUser(User user) {
         return user.getSecondName()
                 + " "

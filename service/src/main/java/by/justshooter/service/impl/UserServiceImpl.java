@@ -1,6 +1,7 @@
 package by.justshooter.service.impl;
 
 import by.justshooter.repository.UserRepository;
+import by.justshooter.repository.entity.User;
 import by.justshooter.service.UserService;
 import by.justshooter.service.dtos.UserDtoInput;
 import by.justshooter.service.dtos.UserDtoOutput;
@@ -32,8 +33,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createNewUser(UserDtoInput newUser) {
-        logger.info("createNewUser");
-        userRepository.save(UserMapper.mapUserInputDtoToUser(newUser));
+    public UserDtoInput createNewUser(UserDtoInput newUser) {
+        logger.info("createNewUser" + newUser);
+        User user = userRepository.save(UserMapper.mapUserInputDtoToUser(newUser));
+        return UserMapper.mapUserToUserInputDto(user);
     }
 }

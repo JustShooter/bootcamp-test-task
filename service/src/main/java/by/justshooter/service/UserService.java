@@ -8,5 +8,5 @@ import java.util.List;
 public interface UserService {
     List<UserDtoOutput> getAllUsers();
 
-    void createNewUser(UserDtoInput newUser);
+    UserDtoInput createNewUser(UserDtoInput newUser);
 }
