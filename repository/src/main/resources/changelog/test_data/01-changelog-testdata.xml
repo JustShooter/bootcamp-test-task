@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="td30102022-1" author="JustShooter">
+        <comment>Add data to user table</comment>
+        <insert tableName="user">
+            <column name="second_name" value="Ivanov"/>
+            <column name="first_name" value="Ivan"/>
+            <column name="middle_name" value="Ivanovich"/>
+            <column name="e_mail" value="ivanovich@mail.ru"/>
+            <column name="role" value="ADMIN"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="second_name" value="Petrov"/>
+            <column name="first_name" value="Peter"/>
+            <column name="middle_name" value="Petrovich"/>
+            <column name="e_mail" value="petrovich@mail.ru"/>
+            <column name="role" value="SALE_USER"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="second_name" value="Sidorov"/>
+            <column name="first_name" value="Sidor"/>
+            <column name="middle_name" value="Sidorovich"/>
+            <column name="e_mail" value="sidorovich@mail.ru"/>
+            <column name="role" value="CUSTOMER_USER"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="second_name" value="Alexeev"/>
+            <column name="first_name" value="Alex"/>
+            <column name="middle_name" value="Alekseevich"/>
+            <column name="e_mail" value="alex_boss@google.com"/>
+            <column name="role" value="SECURE_API_USER"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
